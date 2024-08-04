@@ -100,3 +100,7 @@ ZMQ usage referenced:
  Flores, Luis. Introduction to ZeroMQ. 11 June 2024.
  Req-Reply https://zguide.zeromq.org/docs/chapter1/#Ask-and-Ye-Shall-Receive
 
+
+
+UML Diagram:
+![Alt text](CS361Microservice_A_UML.png) 
