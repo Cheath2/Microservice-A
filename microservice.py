@@ -26,4 +26,7 @@ def add_book(user_request):
             user_books = []
 
 
-    except:
+
+    # exception
+    except: Exception as e:
+        return {error}
