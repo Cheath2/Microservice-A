@@ -17,7 +17,7 @@ DATA_FILE = 'bookdata.json'
 
 
 def load_data():
-    '''Function to present/load book data  '''
+    '''Function to read book data from json file  '''
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r') as file:
             return json.load(file)
@@ -83,10 +83,11 @@ def get_books(user_request):
 while True:
     user_request = socket.recv_json()
 
-
+    # When submit_books request is received, call add_book
     if user_request.get('action') == 'submit_books':
         response = add_book(user_request)
-    
+        
+    # when get_list request received, call get_books
     elif user_request.get('action') == 'get_list':
         response = get_books(user_request)
     
