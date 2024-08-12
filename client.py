@@ -37,17 +37,19 @@ def retrieve_books(username):
 
 
 
-def submit_books(username):
+def check_books(username):
     # Check against book limit, notify if limit met.
     current_books = retrieve_books(username)
     if len(current_books) >= BOOK_LIMIT:
             print(f"You have {len(current_books)} books. The maximum allowed is {BOOK_LIMIT}.")
             return
 
+def submit_books(username):
 
-    books_to_add = []
-
+    check_books(username)
+    
     # Get book input, prompt user limit minus current total times.
+    books_to_add = []
     for i in range(BOOK_LIMIT):
         title = input(f"Enter book {i+1}'s title, or press Enter to exit: ")
         if not title:
@@ -59,7 +61,6 @@ def submit_books(username):
         books_to_add.append({'title': title, 'author': author, 'url': url, 'description': description})
 
         # Limit to adding 3 in a single session
-
         if len(books_to_add) >= BOOK_LIMIT:
             print(f"You have entered the maximum number of books for this session.")
 
